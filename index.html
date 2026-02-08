@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Valentine Proposal 💖</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #ffe6f0;
+            padding-top: 100px;
+        }
+        h1 {
+            color: #d63384;
+        }
+        button {
+            padding: 15px 25px;
+            font-size: 18px;
+            margin: 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        #yesBtn {
+            background-color: #ff4d6d;
+            color: white;
+        }
+        #noBtn {
+            background-color: #6c757d;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Will You Be My Valentine? 💘</h1>
+
+    <button id="yesBtn" onclick="sayYes()">YES ❤️</button>
+    <button id="noBtn" onclick="sayNo()">NO 😢</button>
+
+    <script>
+        function sayYes() {
+            alert("Yayyyy!! 💖 Best decision ever!");
+            document.body.innerHTML = "<h1>See you on Feb 14 ❤️🌹</h1>";
+        }
+
+        function sayNo() {
+            alert("Are you sure? 🥺");
+        }
+    </script>
+
+</body>
+</html>
