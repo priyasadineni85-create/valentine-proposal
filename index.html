@@ -8,10 +8,13 @@
             font-family: Arial, sans-serif;
             background-color: #ffe6f0;
             padding-top: 100px;
+            overflow: hidden;
         }
+
         h1 {
             color: #d63384;
         }
+
         button {
             padding: 15px 25px;
             font-size: 18px;
@@ -19,14 +22,30 @@
             border: none;
             border-radius: 8px;
             cursor: pointer;
+            position: relative;
         }
+
         #yesBtn {
             background-color: #ff4d6d;
             color: white;
         }
+
         #noBtn {
             background-color: #6c757d;
             color: white;
+            position: absolute;
+        }
+
+        #message {
+            font-size: 20px;
+            color: #b30059;
+            margin-top: 20px;
+        }
+
+        img {
+            margin-top: 30px;
+            width: 300px;
+            border-radius: 15px;
         }
     </style>
 </head>
@@ -35,16 +54,39 @@
     <h1>Will You Be My Valentine? 💘</h1>
 
     <button id="yesBtn" onclick="sayYes()">YES ❤️</button>
-    <button id="noBtn" onclick="sayNo()">NO 😢</button>
+    <button id="noBtn" onmouseover="moveNo()">NO 😢</button>
+
+    <div id="message"></div>
+    <div id="imageContainer"></div>
 
     <script>
+        const messages = [
+            "Are you sure? 🥺",
+            "Think again! 😭",
+            "You are making the wrong choice! 💔",
+            "Please reconsider! 😢",
+            "Last chance!! 😩"
+        ];
+
+        let messageIndex = 0;
+
         function sayYes() {
-            alert("Yayyyy!! 💖 Best decision ever!");
-            document.body.innerHTML = "<h1>See you on Feb 14 ❤️🌹</h1>";
+            document.getElementById("message").innerHTML = "Yayyyyy!! 💖 See you on Feb 14!";
+            document.getElementById("imageContainer").innerHTML =
+                "<img src='https://images.unsplash.com/photo-1529333166437-7750a6dd5a70' alt='couple hugging'>";
         }
 
-        function sayNo() {
-            alert("Are you sure? 🥺");
+        function moveNo() {
+            const noBtn = document.getElementById("noBtn");
+
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 100);
+
+            noBtn.style.left = x + "px";
+            noBtn.style.top = y + "px";
+
+            document.getElementById("message").innerHTML = messages[messageIndex];
+            messageIndex = (messageIndex + 1) % messages.length;
         }
     </script>
 
